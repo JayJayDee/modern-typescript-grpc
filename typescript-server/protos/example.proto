@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package example_knowre_package;
+
+// 핑-퐁을 위한 Request/Response 정의
+message ClientPingReq {
+  string pingMessage = 1;
+}
+message ServerPongRes {
+  string pongMessage = 1;
+}
+
+// 이미지 요청 - 응답을 위한 Request/Response 정의
+message UselessImageReq {
+  string seed = 1;
+}
+message UselessImageRes {
+  string seed = 1;
+  bytes imageBytes = 2;
+}
+
+// 서비스에 대한 명세
+service UselessService {
+  rpc ping(ClientPingReq) returns (ServerPongRes) {}
+  rpc requestUselessImage(UselessImageReq) returns (stream UselessImageRes) {}
+}

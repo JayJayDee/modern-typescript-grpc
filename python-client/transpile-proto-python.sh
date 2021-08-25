@@ -1,0 +1,1 @@
+python -m grpc_tools.protoc -I ../with-typescript/protos --python_out=./protos --grpc_python_out=./protos ../with-typescript/protos/example.proto
